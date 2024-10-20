@@ -12,13 +12,13 @@ namespace FlowersshoesCoreMVC.Controllers
 
         public async Task<List<TbCliente>> GetClientes()
         {
-          
+
             using (var httpcliente = new HttpClient())
             {
-               
+
                 var respuesta =
-                    await httpcliente.GetAsync("http://localhost:5050/api/Clientes/GetClientes");             
-                string respuestaAPI = await respuesta.Content.ReadAsStringAsync();              
+                    await httpcliente.GetAsync("http://localhost:5050/api/Clientes/GetClientes");
+                string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<List<TbCliente>>(respuestaAPI)!;
             }
         }
@@ -54,7 +54,7 @@ namespace FlowersshoesCoreMVC.Controllers
         }
 
 
-        public async Task<string> crearCliente( TbCliente obj)
+        public async Task<string> crearCliente(TbCliente obj)
         {
             string cadena = string.Empty;
 
@@ -142,7 +142,7 @@ namespace FlowersshoesCoreMVC.Controllers
             {
                 viewmodel = new ClientesVista
                 {
-                   NuevoClientes = new TbCliente(),
+                    NuevoClientes = new TbCliente(),
                     listaClientes = lista
                 };
             }
@@ -243,7 +243,7 @@ namespace FlowersshoesCoreMVC.Controllers
                 {
                     TbCliente nuevoCliente = model.NuevoClientes;
 
-                    TempData["mensaje"] = await EliminarRestaurarCliente(model.NuevoClientes.Idcli,1);
+                    TempData["mensaje"] = await EliminarRestaurarCliente(model.NuevoClientes.Idcli, 1);
 
                     return RedirectToAction(nameof(Clientes));
                 }
@@ -302,7 +302,7 @@ namespace FlowersshoesCoreMVC.Controllers
             return View("Clientes", viewmodel);
         }
 
-    
+
 
 
     }

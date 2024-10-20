@@ -147,7 +147,7 @@ namespace FlowersshoesCoreMVC.Controllers
                 // realizamos una solicitud Get
                 var respuesta =
                     await httpcliente.GetAsync(
-                        "http://localhost:5050/api/Tallas/GetTallas");
+                        "http://localhost:5050/api/Talla/GetTallas");
                 // convertimos el contenido de la variable respuesta a una cadena
                 string respuestaAPI = await respuesta.Content.ReadAsStringAsync();
 
@@ -210,6 +210,7 @@ namespace FlowersshoesCoreMVC.Controllers
 
             ViewBag.tallas =
                new SelectList(await traerTallas(), "Idtalla", "Talla");
+
             //
             ViewBag.color =
                 new SelectList(await traerColores(), "Idcolor", "Color");
